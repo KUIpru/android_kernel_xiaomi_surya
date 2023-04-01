@@ -444,8 +444,10 @@ static int suspend_enter(suspend_state_t state, bool *wakeup)
 	}
 
 //2020.04.27 add longcheer fengxingqiang "Increase the hibernation info of the rpmh subsystem"
+#ifdef CONFIG_DEBUG_FS
 	rpmh_status_print_enabled();
 	system_sleep_status_print_enabled();
+#endif
 	arch_suspend_disable_irqs();
 	BUG_ON(!irqs_disabled());
 
